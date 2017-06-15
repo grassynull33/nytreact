@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
+import Header from './Header';
+import Search from './Search';
+import Saved from './Saved';
 
 class Main extends Component {
   render () {
     return (
-      <div className='App'>
-        <div className='App-header'>
-          <img src={logo} className='App-logo' alt='logo' />
-          <h2>Welcome to React</h2>
+      <div className='main'>
+        <Header
+          title='New York Times Article Scrubber'
+          description='Search for and annotate articles of interest!'
+        />
+        <div className='container'>
+          <Search />
+          <Saved />
         </div>
-        <p className='App-intro'>
-          To get started, edit <code>src/Main.js</code> and save to reload.
-        </p>
       </div>
     );
   }
