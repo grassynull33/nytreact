@@ -4,6 +4,21 @@ import Search from './Search';
 import Saved from './Saved';
 
 class Main extends Component {
+  constructor () {
+    super();
+
+    this.addResults = this.addResults.bind(this);
+
+    this.state = {
+      searchResults: [],
+      savedArticles: {}
+    };
+  }
+
+  addResults (results) {
+    this.setState({ searchResults: results });
+  }
+
   render () {
     return (
       <div className='main'>
@@ -12,7 +27,9 @@ class Main extends Component {
           description='Search for and annotate articles of interest!'
         />
         <div className='container'>
-          <Search />
+          <Search
+            addResults={this.addResults}
+          />
           <Saved />
         </div>
       </div>
