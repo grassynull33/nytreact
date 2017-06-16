@@ -6,8 +6,11 @@ class Search extends Component {
   render () {
     return (
       <div className='search'>
-        <Query addResults={this.props.addResults} />
-        <Results searchResults={this.props.searchResults} />
+        <Query showResults={this.props.showResults} />
+        <Results
+          searchResults={this.props.searchResults}
+          saveArticle={this.props.saveArticle}
+        />
       </div>
     );
   }

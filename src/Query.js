@@ -36,7 +36,7 @@ class Query extends Component {
 
         console.log(results);
 
-        that.props.addResults(results);
+        that.props.showResults(results);
         that.searchForm.reset();
       })
       .catch(function (error) {

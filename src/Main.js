@@ -7,7 +7,8 @@ class Main extends Component {
   constructor () {
     super();
 
-    this.addResults = this.addResults.bind(this);
+    this.showResults = this.showResults.bind(this);
+    this.saveArticle = this.saveArticle.bind(this);
 
     this.state = {
       searchResults: [],
@@ -15,8 +16,16 @@ class Main extends Component {
     };
   }
 
-  addResults (results) {
+  showResults (results) {
     this.setState({ searchResults: results });
+  }
+
+  saveArticle (article) {
+    const articles = {...this.state.savedArticles};
+
+    articles[article.id] = article;
+
+    this.setState({ savedArticles: articles });
   }
 
   render () {
@@ -28,8 +37,9 @@ class Main extends Component {
         />
         <div className='container'>
           <Search
-            addResults={this.addResults}
+            showResults={this.showResults}
             searchResults={this.state.searchResults}
+            saveArticle={() => this.saveArticle}
           />
           <Saved />
         </div>
