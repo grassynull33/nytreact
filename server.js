@@ -54,8 +54,24 @@ db.once('open', function () {
   console.log('Mongoose connection successful.');
 });
 
+// // Routes
 // app.use('/', routes);
 // app.use('/articles', articles);
+app.get('/api/saved', function (req, res) {
+
+});
+
+app.post('/api/saved', function (req, res) {
+
+});
+
+app.delete('/api/saved', function (req, res) {
+
+});
+
+app.get('*', function (req, res) {
+
+});
 
 // Set Port
 app.set('port', process.env.PORT || 3000);
