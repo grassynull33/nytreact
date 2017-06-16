@@ -12,7 +12,7 @@ class Results extends Component {
           <ul>
             {
               this.props.searchResults
-                .map((index) => <Result id={index.id} details={index} />)
+                .map((index) => <Result key={index.id} details={index} />)
             }
           </ul>
         </div>
