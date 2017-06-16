@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import Query from './Query';
-// import Results from './Results';
+import Results from './Results';
 
 class Search extends Component {
   render () {
     return (
-      <Query addResults={this.props.addResults} />
+      <div className='search'>
+        <Query addResults={this.props.addResults} />
+        <Results searchResults={this.props.searchResults} />
+      </div>
     );
   }
 }

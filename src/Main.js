@@ -29,6 +29,7 @@ class Main extends Component {
         <div className='container'>
           <Search
             addResults={this.addResults}
+            searchResults={this.state.searchResults}
           />
           <Saved />
         </div>
