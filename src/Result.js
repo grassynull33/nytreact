@@ -9,10 +9,11 @@ class Result extends Component {
   }
 
   saveArticle () {
-    console.log(this.props.details.id);
-
     axios.post('/api/saved', {
-      body: this.props.details
+      id: this.props.details.id,
+      title: this.props.details.title,
+      date: this.props.details.date,
+      url: this.props.details.url
     })
     .then(function (response) {
       console.log(response);

@@ -62,8 +62,18 @@ db.once('open', function () {
 // });
 
 app.post('/api/saved', function (req, res) {
-  // console.log(req.body);
-  console.log('WORKS');
+  var newArticle = new Article({
+    _id: req.body.id,
+    title: req.body.title,
+    date: req.body.date,
+    url: req.body.url
+  });
+
+  newArticle.save(function (error) {
+    if (error) {
+      console.log(error);
+    }
+  });
 });
 
 // app.delete('/api/saved', function (req, res) {

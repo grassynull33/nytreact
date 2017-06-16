@@ -15,17 +15,19 @@ var ArticleSchema = new Schema({
     type: String,
     required: true
   },
+  date: {
+    type: String,
+    required: true
+  },
   url: {
     type: String,
-    unique: true,
     required: true
   }
-  // ,
   // notes: [{
   //   type: Schema.Types.ObjectId,
   //   ref: 'Note'
-  // }]
-});
+  // }],
+}, { timestamps: { createdAt: 'createdAt' } });
 
 // Create the Article model with the ArticleSchema
 var Article = mongoose.model('Article', ArticleSchema);
