@@ -57,24 +57,25 @@ db.once('open', function () {
 // // Routes
 // app.use('/', routes);
 // app.use('/articles', articles);
-app.get('/api/saved', function (req, res) {
+// app.get('/api/saved', function (req, res) {
 
-});
+// });
 
 app.post('/api/saved', function (req, res) {
-
+  // console.log(req.body);
+  console.log('WORKS');
 });
 
-app.delete('/api/saved', function (req, res) {
+// app.delete('/api/saved', function (req, res) {
 
-});
+// });
 
 app.get('*', function (req, res) {
-
+  res.send('./public/index.html');
 });
 
 // Set Port
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3001);
 
 app.listen(app.get('port'), function () {
   console.log('Server started on port ' + app.get('port'));

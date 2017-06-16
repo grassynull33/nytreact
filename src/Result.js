@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class Result extends Component {
   constructor () {
@@ -10,36 +11,15 @@ class Result extends Component {
   saveArticle () {
     console.log(this.props.details.id);
 
-    // axios.post('/api/saved', {
-    //   params: {
-    //     'api-key': process.env.REACT_APP_NYT_API_KEY,
-    //     'q': this.topic.value,
-    //     'begin_date': `${this.startYear.value}0101`,
-    //     'end_date': `${this.endYear.value}0101`
-    //   }
-    // })
-    //   .then(function (response) {
-    //     let results = [];
-
-    //     for (let i = 0; i < response.data.response.docs.length; i++) {
-    //       const result = {
-    //         id: response.data.response.docs[i]._id,
-    //         title: response.data.response.docs[i].headline.main,
-    //         date: response.data.response.docs[i].pub_date,
-    //         url: response.data.response.docs[i].web_url
-    //       };
-
-    //       results.push(result);
-    //     }
-
-    //     console.log(results);
-
-    //     that.props.addResults(results);
-    //     that.searchForm.reset();
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
+    axios.post('/api/saved', {
+      body: this.props.details
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   render () {
