@@ -4,8 +4,8 @@ import Search from './Search';
 import Saved from './Saved';
 
 class Main extends Component {
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
 
     this.showResults = this.showResults.bind(this);
     this.saveArticle = this.saveArticle.bind(this);
@@ -39,7 +39,7 @@ class Main extends Component {
           <Search
             showResults={this.showResults}
             searchResults={this.state.searchResults}
-            saveArticle={() => this.saveArticle}
+            saveArticle={this.saveArticle}
           />
           <Saved />
         </div>
