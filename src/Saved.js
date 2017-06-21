@@ -10,7 +10,11 @@ class Saved extends Component {
         </div>
         <div className='panel-body'>
           <ul>
-            <SavedArticle />
+            {
+              Object
+                .keys(this.props.savedArticleState)
+                .map((key) => <SavedArticle key={key} details={this.props.savedArticleState[key]} removeArticle={this.props.removeArticle} />)
+            }
           </ul>
         </div>
       </div>

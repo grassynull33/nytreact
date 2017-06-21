@@ -9,6 +9,7 @@ class Main extends Component {
 
     this.showResults = this.showResults.bind(this);
     this.saveArticle = this.saveArticle.bind(this);
+    this.removeArticle = this.removeArticle.bind(this);
 
     this.state = {
       searchResults: [],
@@ -28,6 +29,14 @@ class Main extends Component {
     this.setState({ savedArticles: articles });
   }
 
+  removeArticle (key) {
+    const articles = {...this.state.savedArticles};
+
+    delete articles[key];
+
+    this.setState({ savedArticles: articles });
+  }
+
   render () {
     return (
       <div className='main'>
@@ -41,7 +50,10 @@ class Main extends Component {
             searchResults={this.state.searchResults}
             saveArticle={this.saveArticle}
           />
-          <Saved />
+          <Saved
+            savedArticleState={this.state.savedArticles}
+            removeArticle={this.removeArticle}
+          />
         </div>
       </div>
     );
