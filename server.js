@@ -57,9 +57,14 @@ db.once('open', function () {
 // // Routes
 // app.use('/', routes);
 // app.use('/articles', articles);
-// app.get('/api/saved', function (req, res) {
 
-// });
+app.get('/api/saved', function (req, res) {
+  console.log('GET request');
+
+  Article.find({}, function (error, docs) {
+    res.send(docs);
+  });
+});
 
 app.post('/api/saved', function (req, res) {
   var article = req.body;

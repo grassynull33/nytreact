@@ -18,6 +18,31 @@ class Main extends Component {
     };
   }
 
+  componentWillMount () {
+    const that = this;
+
+    axios.get('/api/saved')
+    .then(function (response) {
+      const articles = {};
+
+      for (let i = 0; i < response.data.length; i++) {
+        const articleData = {
+          _id: response.data[i]._id,
+          title: response.data[i].title,
+          date: response.data[i].date,
+          url: response.data[i].url
+        };
+
+        articles[response.data[i]._id] = articleData;
+      }
+
+      that.setState({ savedArticles: articles });
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
   showResults (results) {
     this.setState({ searchResults: results });
   }
