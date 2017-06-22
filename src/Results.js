@@ -12,7 +12,7 @@ class Results extends Component {
           <ul>
             {
               this.props.searchResults
-                .map((index) => <Result key={index.id} details={index} saveArticle={this.props.saveArticle} />)
+                .map((index) => <Result key={index._id} details={index} saveArticle={this.props.saveArticle} />)
             }
           </ul>
         </div>

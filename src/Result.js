@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
 
 class Result extends Component {
   // constructor (props) {
@@ -8,26 +7,11 @@ class Result extends Component {
   //   this.saveArticle = this.saveArticle.bind(this);
   // }
 
-  // saveArticle () {
-  //   axios.post('/api/saved', {
-  //     id: this.props.details.id,
-  //     title: this.props.details.title,
-  //     date: this.props.details.date,
-  //     url: this.props.details.url
-  //   })
-  //   .then(function (response) {
-  //     console.log(response);
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error);
-  //   });
-  // }
-
   passArticle (event) {
     event.preventDefault();
 
     const article = {
-      id: this.props.details.id,
+      _id: this.props.details._id,
       title: this.props.details.title,
       date: this.props.details.date,
       url: this.props.details.url

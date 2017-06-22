@@ -25,7 +25,7 @@ class Query extends Component {
 
         for (let i = 0; i < response.data.response.docs.length; i++) {
           const result = {
-            id: response.data.response.docs[i]._id,
+            _id: response.data.response.docs[i]._id,
             title: response.data.response.docs[i].headline.main,
             date: response.data.response.docs[i].pub_date,
             url: response.data.response.docs[i].web_url

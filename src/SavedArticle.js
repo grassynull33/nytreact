@@ -4,7 +4,7 @@ class SavedArticle extends Component {
   passArticle (event) {
     event.preventDefault();
 
-    this.props.removeArticle(this.props.details.id);
+    this.props.removeArticle(this.props.details._id);
   }
 
   render () {

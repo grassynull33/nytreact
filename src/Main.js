@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './Header';
 import Search from './Search';
 import Saved from './Saved';
+import axios from 'axios';
 
 class Main extends Component {
   constructor (props) {
@@ -24,9 +25,17 @@ class Main extends Component {
   saveArticle (article) {
     const articles = {...this.state.savedArticles};
 
-    articles[article.id] = article;
+    articles[article._id] = article;
 
     this.setState({ savedArticles: articles });
+
+    axios.post('/api/saved', article)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   removeArticle (key) {
