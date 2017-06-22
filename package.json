@@ -22,5 +22,4 @@
     "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:3001",
-  "homepage": "https://limitless-cliffs-99008.herokuapp.com/"
 }
