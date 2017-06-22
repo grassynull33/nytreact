@@ -59,8 +59,6 @@ db.once('open', function () {
 // app.use('/articles', articles);
 
 app.get('/api/saved', function (req, res) {
-  console.log('GET request');
-
   Article.find({}, function (error, docs) {
     res.send(docs);
   });
@@ -79,9 +77,17 @@ app.post('/api/saved', function (req, res) {
     });
 });
 
-// app.delete('/api/saved', function (req, res) {
+app.delete('/api/saved', function (req, res) {
+  var id = req.query._id;
 
-// });
+  Article.findByIdAndRemove(id, function (error, doc) {
+    if (error) {
+      res.send(error);
+    } else {
+      res.send(doc);
+    }
+  });
+});
 
 app.get('*', function (req, res) {
   res.send('./public/index.html');

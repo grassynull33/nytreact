@@ -69,6 +69,14 @@ class Main extends Component {
     delete articles[key];
 
     this.setState({ savedArticles: articles });
+
+    axios.delete('/api/saved', {params: {_id: key}})
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   render () {
