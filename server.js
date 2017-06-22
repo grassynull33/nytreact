@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Set Static Folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'build')));
 
 // Database configuration with mongoose
 mongoose.connect(process.env.REACT_APP_MONGODB_URI);
@@ -68,7 +68,7 @@ app.delete('/api/saved', function (req, res) {
 });
 
 app.get('*', function (req, res) {
-  res.send('./public/index.html');
+  res.sendFile('./build/index.html');
 });
 
 // Set Port
