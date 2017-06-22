@@ -2,35 +2,17 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
-// var exphbs = require('express-handlebars');
-// var logger = require('morgan');
 var mongoose = require('mongoose');
 
 // Requiring our Note and Article models
 // var Note = require('./models/Note');
 var Article = require('./models/Article');
 
-// // Requiring our routes
-// var routes = require('./routes/index');
-// var articles = require('./routes/articles');
-
-// Our scraping tools
-var request = require('request');
-var cheerio = require('cheerio');
-
 // Set mongoose to leverage built in JavaScript ES6 Promises
 mongoose.Promise = Promise;
 
 // Init app
 var app = express();
-
-// // View Engine
-// app.set('views', path.join(__dirname, 'views'));
-// app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-// app.set('view engine', 'handlebars');
-
-// // Use morgan
-// app.use(logger('dev'));
 
 // BodyParser Middleware
 app.use(bodyParser.json());
@@ -40,8 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Database configuration with mongoose
-// mongoose.connect(process.env.MONGODB_URI);
-mongoose.connect('mongodb://localhost/nytreact');
+mongoose.connect(process.env.REACT_APP_MONGODB_URI);
 var db = mongoose.connection;
 
 // Show any mongoose errors
@@ -54,10 +35,7 @@ db.once('open', function () {
   console.log('Mongoose connection successful.');
 });
 
-// // Routes
-// app.use('/', routes);
-// app.use('/articles', articles);
-
+// Routes
 app.get('/api/saved', function (req, res) {
   Article.find({}, function (error, docs) {
     res.send(docs);
