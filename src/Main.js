@@ -3,6 +3,7 @@ import Header from './Header';
 import Search from './Search';
 import Saved from './Saved';
 import axios from 'axios';
+import './Main.css';
 
 class Main extends Component {
   constructor (props) {

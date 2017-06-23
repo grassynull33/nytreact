@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './SavedArticle.css';
 
 class SavedArticle extends Component {
   passArticle (event) {
@@ -12,7 +13,7 @@ class SavedArticle extends Component {
       <li>
         <a href={this.props.details.url}>{this.props.details.title}</a>
         <button
-          className='btn btn-danger'
+          className='btn btn-danger btn-sm'
           onClick={(e) => this.passArticle(e)}
         >
           Remove

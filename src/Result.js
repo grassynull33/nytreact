@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Result.css';
 
 class Result extends Component {
   passArticle (event) {
@@ -19,7 +20,7 @@ class Result extends Component {
       <li>
         <a href={this.props.details.url}>{this.props.details.title}</a>
         <button
-          className='btn btn-success'
+          className='btn btn-success btn-sm'
           onClick={(e) => this.passArticle(e)}
         >
           Save
